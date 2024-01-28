@@ -1,5 +1,7 @@
 package de.trxsson.userapi.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,29 +24,7 @@ import java.util.UUID;
 @Setter
 public class User {
 
-    /**
-     * The ID of a user.
-     * <p>
-     * This private field represents the ID of a user. It is used to store the unique identifier
-     * for a user object. The ID is generated using UUID (Universally Unique Identifier) which
-     * ensures uniqueness across different systems and time. The ID can be used to uniquely
-     * identify a user in a system.
-     * <p>
-     * Example usage:
-     * <pre>
-     *     User user = new User();
-     *     UUID id = UUID.randomUUID();
-     *     user.setId(id);
-     *     UUID userId = user.getId();
-     *     System.out.println(userId); // prints the generated UUID
-     * </pre>
-     *
-     * @see User
-     * @see User#getId()
-     * @see User#setId(UUID)
-     * @since 1.0
-     */
-    @Id
+
     private UUID id;
 
     /**
