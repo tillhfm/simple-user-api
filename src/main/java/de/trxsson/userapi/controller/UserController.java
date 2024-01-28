@@ -4,6 +4,7 @@ import de.trxsson.userapi.entity.User;
 import lombok.NonNull;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 /**
@@ -37,19 +38,18 @@ public class UserController {
     }
 
     /**
-     * POST Mapping for creating a new user in the database.
-     * <p>
-     * This method creates a new user in the database based on the provided User object. It saves the user's
-     * information, name and date of birth. The user is then returned as a result with the generated id.
+     * Creates a new user with the given name and date of birth.
      *
-     * @param user The User object containing the details of the user to be created.
-     * @return The newly created User object.
-     *
-     * @since 1.0
+     * @param name The name of the user.
+     * @param dateOfBirth The date of birth of the user.
+     * @return The created User object.
      */
     @NonNull
     @PostMapping("users")
-    public User createUser(@RequestBody User user) {
+    public User createUser(
+            @RequestParam(value = "name") String name,
+            @RequestParam(value = "dateOfBirth") LocalDate dateOfBirth
+    ) {
         //TODO: Create and return new user from database
         return new User();
     }
