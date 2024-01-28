@@ -69,18 +69,21 @@ public class UserService {
     }
 
     /**
-     * Creates a new user and saves it to the database.
+     * Creates a new user with the given name and date of birth.
      *
-     * @param name         the name of the user
-     * @param dateOfBirth  the date of birth of the user
-     * @throws RuntimeException if a SQLException occurs during the insertion process
+     * @param name         The name of the user.
+     * @param dateOfBirth  The date of birth of the user.
+     * @return The created User object.
      *
      * @since 1.0
      */
-    public void createUser(@NonNull String name, @NonNull LocalDate dateOfBirth) {
-        databaseService.update("INSERT INTO `users` (name, date_of_birth) VALUES (?, ?)",
-                name,
-                dateOfBirth.format(birthDateFormatter));
+    public User createUser(@NonNull String name, @NonNull LocalDate dateOfBirth) {
+        User user = new User(UUID.randomUUID(), name, dateOfBirth);
+        databaseService.update("INSERT INTO `users` (id, name, date_of_birth) VALUES (?, ?, ?)",
+                user.getId().toString(),
+                user.getName(),
+                user.getDateOfBirth().format(birthDateFormatter));
+        return user;
     }
 
     /**
