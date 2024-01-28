@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 
 
@@ -71,23 +71,23 @@ public class User {
     /**
      * The date of birth of a user.
      * <p>
-     * This is a private field that represents the date of birth of a user. It is used to store
-     * the user's date of birth as a string. The format of the date should be specified in a
-     * consistent manner, such as using the ISO-8601 standard format (YYYY-MM-DD).
+     * This private variable represents the date of birth of a user. It is used to store the user's
+     * date of birth in the form of a LocalDate object.
      * <p>
      * Example usage:
      * <pre>
      *     User user = new User();
-     *     user.setDateOfBirth("1990-01-01");
-     *     String dob = user.getDateOfBirth();
-     *     System.out.println(dob); // prints "1990-01-01"
+     *     LocalDate dob = LocalDate.of(1990, 5, 15);
+     *     user.setDateOfBirth(dob);
+     *     LocalDate userDob = user.getDateOfBirth();
+     *     System.out.println(userDob); // prints "1990-05-15"
      * </pre>
      *
      * @see User
      * @see User#getDateOfBirth()
-     * @see User#setDateOfBirth(Date)
+     * @see User#setDateOfBirth(LocalDate)
      * @since 1.0
      */
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
 
 }
