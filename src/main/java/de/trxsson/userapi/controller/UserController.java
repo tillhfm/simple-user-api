@@ -36,7 +36,7 @@ public class UserController {
             @RequestParam(value = "limit") int limit,
             @RequestParam(value = "offset", required = false, defaultValue = "0") int offset
     ) {
-        return userService.getAllUsers();
+        return userService.getAllUsers(limit, offset);
     }
 
     /**

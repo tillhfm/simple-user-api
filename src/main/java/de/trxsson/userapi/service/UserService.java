@@ -44,16 +44,18 @@ public class UserService {
     private final DateTimeFormatter birthDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     /**
-     * Retrieves all users from the database.
+     * Retrieves an array of user objects based on the provided limit and offset values.
      *
-     * @return an array of User objects representing all users in the database
-     * @throws RuntimeException if a SQLException occurs during the retrieval process
+     * @param limit  The maximum number of users to retrieve.
+     * @param offset The starting index of the users to retrieve.
+     * @return An array of User objects representing the retrieved users.
+     * @throws RuntimeException if a SQLException occurs during the retrieval process.
      *
      * @since 1.0
      */
-    public User[] getAllUsers() {
+    public User[] getAllUsers(int limit, int offset) {
         List<User> userList = new ArrayList<>();
-        try (var resultSet = databaseService.query("SELECT * FROM `users`")) {
+        try (var resultSet = databaseService.query("SELECT * FROM `users` LIMIT ? OFFSET ?", limit, offset)) {
             while (resultSet.next()) {
                 User user = new User(
                         UUID.fromString(resultSet.getString("id")),
