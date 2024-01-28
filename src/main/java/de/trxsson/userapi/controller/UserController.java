@@ -75,7 +75,11 @@ public class UserController {
      */
     @NonNull
     @PutMapping("users/{id}")
-    public User updateUser(@PathVariable(value = "id") UUID id) {
+    public User updateUser(
+            @PathVariable(value = "id") UUID id,
+            @RequestParam(value = "name") String name,
+            @RequestParam(value = "dateOfBirth") LocalDate dateOfBirth
+    ) {
         //TODO: Update and return user from database
         return new User();
     }
