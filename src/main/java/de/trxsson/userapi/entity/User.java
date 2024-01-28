@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
 import java.util.UUID;
 
 
@@ -84,9 +85,9 @@ public class User {
      *
      * @see User
      * @see User#getDateOfBirth()
-     * @see User#setDateOfBirth(String)
+     * @see User#setDateOfBirth(Date)
      * @since 1.0
      */
-    private String dateOfBirth;
+    private Date dateOfBirth;
 
 }
