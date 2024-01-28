@@ -2,9 +2,7 @@ package de.trxsson.userapi.controller;
 
 import de.trxsson.userapi.entity.User;
 import lombok.NonNull;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * The UserController class is a REST controller that handles HTTP requests related to user management.
@@ -34,6 +32,24 @@ public class UserController {
     ) {
         //TODO: Retrieve and return users from database
         return new User[0];
+    }
+
+    /**
+     * POST Mapping for creating a new user in the database.
+     * <p>
+     * This method creates a new user in the database based on the provided User object. It saves the user's
+     * information, name and date of birth. The user is then returned as a result with the generated id.
+     *
+     * @param user The User object containing the details of the user to be created.
+     * @return The newly created User object.
+     *
+     * @since 1.0
+     */
+    @NonNull
+    @PostMapping("users")
+    public User createUser(@RequestBody User user) {
+        //TODO: Create and return new user from database
+        return new User();
     }
 
 }
