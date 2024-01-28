@@ -4,6 +4,8 @@ import de.trxsson.userapi.entity.User;
 import lombok.NonNull;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 /**
  * The UserController class is a REST controller that handles HTTP requests related to user management.
  * It provides methods to retrieve and edit users.
@@ -50,6 +52,42 @@ public class UserController {
     public User createUser(@RequestBody User user) {
         //TODO: Create and return new user from database
         return new User();
+    }
+
+    /**
+     * Retrieves a user based on the provided ID.
+     *
+     * @param id The ID of the user to retrieve.
+     * @return The User object representing the retrieved user.
+     */
+    @NonNull
+    @GetMapping("users/{id}")
+    public User retrieveUser(@PathVariable(value = "id") UUID id) {
+        //TODO: Retrieve and return user from database
+        return new User();
+    }
+
+    /**
+     * Updates a user in the database based on the provided ID.
+     *
+     * @param id The ID of the user to update.
+     * @return The updated User object.
+     */
+    @NonNull
+    @PutMapping("users/{id}")
+    public User updateUser(@PathVariable(value = "id") UUID id) {
+        //TODO: Update and return user from database
+        return new User();
+    }
+
+    /**
+     * Deletes a user from the database based on the provided ID.
+     *
+     * @param id The UUID representing the ID of the user to be deleted.
+     */
+    @DeleteMapping("users/{id}")
+    public void deleteUser(@PathVariable(value = "id") UUID id) {
+        //TODO: Delete user from database
     }
 
 }
