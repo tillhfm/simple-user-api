@@ -1,5 +1,6 @@
 package de.trxsson.userapi.entity;
 
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -42,6 +43,7 @@ public class User {
      * @see User#setId(UUID)
      * @since 1.0
      */
+    @Id
     private UUID id;
 
     /**
