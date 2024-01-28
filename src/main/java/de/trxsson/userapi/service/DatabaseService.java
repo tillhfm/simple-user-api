@@ -29,15 +29,14 @@ public class DatabaseService {
      */
     private void connect() {
         try {
-            String DATABASE_URL_FORMAT = "jdbc:mariadb://%s/%s?user=%s&password=%s&autoReconnect=true";
-
-            String formattedURL = String.format(DATABASE_URL_FORMAT,
+            String url = String.format("jdbc:mariadb://%s/%s?&autoReconnect=true",
                     System.getenv("USER_DATABASE_HOST"),
-                    System.getenv("USER_DATABASE_NAME"),
+                    System.getenv("USER_DATABASE_NAME"));
+
+            connection = DriverManager.getConnection(url,
                     System.getenv("USER_DATABASE_USERNAME"),
                     System.getenv("USER_DATABASE_PASSWORD"));
 
-            connection = DriverManager.getConnection(formattedURL);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
