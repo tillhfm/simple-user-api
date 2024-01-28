@@ -120,11 +120,13 @@ public class UserService {
      *
      * @since 1.0
      */
-    public void updateUser(@NonNull UUID id, @NonNull String name, @NonNull LocalDate dateOfBirth) {
+    public User updateUser(@NonNull UUID id, @NonNull String name, @NonNull LocalDate dateOfBirth) {
+        User user = new User(id, name, dateOfBirth);
         databaseService.update("UPDATE `users` SET name = ?, date_of_birth = ? WHERE id = ?",
                 name,
                 dateOfBirth.format(birthDateFormatter),
                 id.toString());
+        return user;
     }
 
     /**
