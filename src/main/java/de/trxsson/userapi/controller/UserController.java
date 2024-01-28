@@ -30,7 +30,7 @@ public class UserController {
     @GetMapping("users")
     public User[] retrieveUsers(
             @RequestParam(value = "limit") int limit,
-            @RequestParam(value = "offset") int offset
+            @RequestParam(value = "offset", required = false, defaultValue = "0") int offset
     ) {
         //TODO: Retrieve and return users from database
         return new User[0];
