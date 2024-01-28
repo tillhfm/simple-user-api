@@ -1,6 +1,7 @@
 package de.trxsson.userapi.controller;
 
 import de.trxsson.userapi.entity.User;
+import de.trxsson.userapi.service.UserService;
 import lombok.NonNull;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,8 @@ import java.util.UUID;
  */
 @RestController
 public class UserController {
+
+    private final UserService userService = new UserService();
 
     /**
      * Retrieves an array of users based on the provided limit and offset values.
@@ -33,8 +36,7 @@ public class UserController {
             @RequestParam(value = "limit") int limit,
             @RequestParam(value = "offset", required = false, defaultValue = "0") int offset
     ) {
-        //TODO: Retrieve and return users from database
-        return new User[0];
+        return userService.getAllUsers();
     }
 
     /**
@@ -50,8 +52,7 @@ public class UserController {
             @RequestParam(value = "name") String name,
             @RequestParam(value = "dateOfBirth") LocalDate dateOfBirth
     ) {
-        //TODO: Create and return new user from database
-        return new User();
+        return userService.createUser(name, dateOfBirth);
     }
 
     /**
@@ -63,8 +64,7 @@ public class UserController {
     @NonNull
     @GetMapping("users/{id}")
     public User retrieveUser(@PathVariable(value = "id") UUID id) {
-        //TODO: Retrieve and return user from database
-        return new User();
+        return userService.getUserById(id);
     }
 
     /**
@@ -80,8 +80,7 @@ public class UserController {
             @RequestParam(value = "name") String name,
             @RequestParam(value = "dateOfBirth") LocalDate dateOfBirth
     ) {
-        //TODO: Update and return user from database
-        return new User();
+        return userService.updateUser(id, name, dateOfBirth);
     }
 
     /**
@@ -91,7 +90,7 @@ public class UserController {
      */
     @DeleteMapping("users/{id}")
     public void deleteUser(@PathVariable(value = "id") UUID id) {
-        //TODO: Delete user from database
+        userService.deleteUser(id);
     }
 
 }
