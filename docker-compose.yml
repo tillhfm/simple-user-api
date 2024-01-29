@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  spring-boot-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      USER_DATABASE_HOST: 'hostname:port'
+      USER_DATABASE_NAME: 'db'
+      USER_DATABASE_USERNAME: 'user'
+      # replace '$' with '$$'
+      USER_DATABASE_PASSWORD: 'password'
