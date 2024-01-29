@@ -1,0 +1,2 @@
+# Simple user API
+I created this simple user api for my personal contribution to my theses which I had to write for school. It utilizes SpringBoot to host some simple REST endpoints for maniging users, which are stored inside a MariaDB database. It also has OpenAI and SwaggerUI built into it to visualize what it can do.
