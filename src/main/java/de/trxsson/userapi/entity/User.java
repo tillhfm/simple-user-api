@@ -14,6 +14,8 @@ import java.util.UUID;
  * <p>
  * The User class encapsulates information about a user, including their ID, name,
  * and date of birth. The class provides getter and setter methods for each property.
+ *
+ * @since 1.0
  */
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,6 +24,37 @@ import java.util.UUID;
 public class User {
 
 
+    /**
+     * Represents the unique identifier of an object.
+     *
+     * <p>
+     * The id field is a private {@link UUID} variable used to store the unique identifier of an object.
+     * This identifier can be used to distinguish one object from another.
+     * </p>
+     *
+     * <p>
+     * Example usage:
+     *
+     * <pre>
+     *     // Create a new User object
+     *     User user = new User();
+     *
+     *     // Set the id of the user
+     *     UUID id = UUID.randomUUID();
+     *     user.setId(id);
+     *
+     *     // Get the id of the user
+     *     UUID userId = user.getId();
+     *     System.out.println(userId); // Prints the unique identifier
+     * </pre>
+     *
+     * </p>
+     *
+     * @see User
+     * @see User#getId()
+     * @see User#setId(UUID)
+     * @since 1.0
+     */
     private UUID id;
 
     /**

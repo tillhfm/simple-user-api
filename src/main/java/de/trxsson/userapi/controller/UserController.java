@@ -18,6 +18,11 @@ import java.util.UUID;
 @RestController
 public class UserController {
 
+    /**
+     * Represents a user service for managing user data.
+     * This class provides methods to retrieve, create, update, and delete users.
+     * It interacts with a database through the DatabaseService class.
+     */
     private final UserService userService = new UserService();
 
     /**
@@ -45,6 +50,9 @@ public class UserController {
      * @param name The name of the user.
      * @param dateOfBirth The date of birth of the user.
      * @return The created User object.
+     *
+     * @see User
+     * @since 1.0
      */
     @NonNull
     @PostMapping("users")
@@ -60,6 +68,9 @@ public class UserController {
      *
      * @param id The ID of the user to retrieve.
      * @return The User object representing the retrieved user.
+     *
+     * @see User
+     * @since 1.0
      */
     @NonNull
     @GetMapping("users/{id}")
@@ -72,6 +83,9 @@ public class UserController {
      *
      * @param id The ID of the user to update.
      * @return The updated User object.
+     *
+     * @see User
+     * @since 1.0
      */
     @NonNull
     @PutMapping("users/{id}")
@@ -87,6 +101,9 @@ public class UserController {
      * Deletes a user from the database based on the provided ID.
      *
      * @param id The UUID representing the ID of the user to be deleted.
+     *
+     * @see User
+     * @since 1.0
      */
     @DeleteMapping("users/{id}")
     public void deleteUser(@PathVariable(value = "id") UUID id) {

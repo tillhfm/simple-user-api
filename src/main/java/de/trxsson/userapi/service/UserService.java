@@ -12,6 +12,9 @@ import java.util.UUID;
 
 /**
  * Represents a service for managing user data in a database.
+ *
+ * @see User
+ * @since 1.0
  */
 public class UserService {
 
@@ -30,14 +33,6 @@ public class UserService {
      * <p>
      * The birthDateFormatter variable is an instance of the DateTimeFormatter class,
      * which is used to format birth dates in the format "yyyy-MM-dd".
-     * <p>
-     * Example usage:
-     * <pre>{@code
-     *     User user = new User();
-     *     LocalDate dob = LocalDate.of(1990, 5, 15);
-     *     String formattedDate = birthDateFormatter.format(dob);
-     *     System.out.println(formattedDate); // prints "1990-05-15"
-     * }</pre>
      *
      * @since 1.0
      */

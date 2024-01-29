@@ -4,21 +4,28 @@ import java.sql.*;
 
 /**
  * Represents a service for interacting with a database.
+ *
+ * @since 1.0
  */
 public class DatabaseService {
 
     /**
      * Holds the instance's connection to a database.
+     *
+     * @since 1.0
      */
     private Connection connection;
 
+    /**
+     * The default constructor for the DatabaseService class
+     * <p>
+     * When being initiated, the connection to the database is automatically established by running the {@link DatabaseService#connect()} method.
+     */
     public DatabaseService() {
         connect();
     }
 
     /**
-     * FIXME: Connection with complicated passwords not working, passwords possibly being messed up
-     * <p>
      * Establishes a connection to the database using the provided credentials.
      * <p>
      * The connection URL is constructed using the environment variables for the database host, name, username, and password.
@@ -26,6 +33,7 @@ public class DatabaseService {
      *
      * @throws RuntimeException if a SQLException occurs during the connection attempt
      *
+     * @since 1.0
      */
     private void connect() {
         try {
@@ -50,6 +58,7 @@ public class DatabaseService {
      *
      * @throws RuntimeException if a SQLException occurs during the closure
      *
+     * @since 1.0
      */
     public void close() {
         try {
@@ -68,6 +77,8 @@ public class DatabaseService {
      * The method will then attempt to establish a new connection using the {@link #connect()} method.
      *
      * @throws RuntimeException if a SQLException occurs during the validation process
+     *
+     * @since 1.0
      */
     private void validateConnection() {
         try {
@@ -88,6 +99,8 @@ public class DatabaseService {
      * @param values optional parameter values
      * @return the result set produced by the query
      * @throws RuntimeException if a SQLException occurs during the query execution or parameter setting
+     *
+     * @since 1.0
      */
     public ResultSet query(String sql, Object... values) {
         validateConnection();
@@ -107,6 +120,8 @@ public class DatabaseService {
      * @param sql    the update SQL statement to execute
      * @param values optional parameter values for the SQL statement
      * @throws RuntimeException if a SQLException occurs during the execution of the statement or parameter setting
+     *
+     * @since 1.0
      */
     public void update(String sql, Object... values) {
         validateConnection();
@@ -126,6 +141,8 @@ public class DatabaseService {
      * @param sql the SQL statement to prepare
      * @return a PreparedStatement object that represents the compiled SQL statement
      * @throws RuntimeException if a SQLException occurs while preparing the statement
+     *
+     * @since 1.0
      */
     private PreparedStatement prepare(String sql) {
         try {
