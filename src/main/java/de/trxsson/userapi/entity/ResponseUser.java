@@ -25,7 +25,8 @@ public class ResponseUser extends User {
      * @param user the user object for which to calculate the age and determine if they are an adult
      */
     protected ResponseUser(User user) {
-        age = Period.between(getDateOfBirth(), LocalDate.now()).getYears();
+        super(user.getId(), user.getName(), user.getDateOfBirth());
+        age = getDateOfBirth().until(LocalDate.now()).getYears();
         isAdult = age >= 18;
     }
 
