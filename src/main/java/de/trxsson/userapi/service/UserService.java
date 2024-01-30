@@ -48,7 +48,7 @@ public class UserService {
      *
      * @since 1.0
      */
-    public User[] getAllUsers(int limit, int offset) {
+    public List<User> getAllUsers(int limit, int offset) {
         List<User> userList = new ArrayList<>();
         try (var resultSet = databaseService.query("SELECT * FROM `users` LIMIT ? OFFSET ?", limit, offset)) {
             while (resultSet.next()) {
@@ -62,7 +62,7 @@ public class UserService {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return userList.toArray(new User[0]);
+        return userList;
     }
 
     /**

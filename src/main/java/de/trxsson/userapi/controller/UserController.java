@@ -1,11 +1,13 @@
 package de.trxsson.userapi.controller;
 
+import de.trxsson.userapi.entity.ResponseUser;
 import de.trxsson.userapi.entity.User;
 import de.trxsson.userapi.service.UserService;
 import lombok.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.UUID;
 
 /**
@@ -37,11 +39,14 @@ public class UserController {
      */
     @NonNull
     @GetMapping("users")
-    public User[] retrieveUsers(
+    public ResponseUser[] retrieveUsers(
             @RequestParam(value = "limit") int limit,
             @RequestParam(value = "offset", required = false, defaultValue = "0") int offset
     ) {
-        return userService.getAllUsers(limit, offset);
+        return userService.getAllUsers(limit, offset)
+                .stream()
+                .map(User::toAPIResponse)
+                .toArray(ResponseUser[]::new);
     }
 
     /**
@@ -56,11 +61,11 @@ public class UserController {
      */
     @NonNull
     @PostMapping("users")
-    public User createUser(
+    public ResponseUser createUser(
             @RequestParam(value = "name") String name,
             @RequestParam(value = "dateOfBirth") LocalDate dateOfBirth
     ) {
-        return userService.createUser(name, dateOfBirth);
+        return userService.createUser(name, dateOfBirth).toAPIResponse();
     }
 
     /**
@@ -74,8 +79,8 @@ public class UserController {
      */
     @NonNull
     @GetMapping("users/{id}")
-    public User retrieveUser(@PathVariable(value = "id") UUID id) {
-        return userService.getUserById(id);
+    public ResponseUser retrieveUser(@PathVariable(value = "id") UUID id) {
+        return userService.getUserById(id).toAPIResponse();
     }
 
     /**
@@ -89,12 +94,12 @@ public class UserController {
      */
     @NonNull
     @PutMapping("users/{id}")
-    public User updateUser(
+    public ResponseUser updateUser(
             @PathVariable(value = "id") UUID id,
             @RequestParam(value = "name") String name,
             @RequestParam(value = "dateOfBirth") LocalDate dateOfBirth
     ) {
-        return userService.updateUser(id, name, dateOfBirth);
+        return userService.updateUser(id, name, dateOfBirth).toAPIResponse();
     }
 
     /**
