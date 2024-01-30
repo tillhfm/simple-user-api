@@ -3,7 +3,6 @@ package de.trxsson.userapi.entity;
 import lombok.Getter;
 
 import java.time.LocalDate;
-import java.time.Period;
 
 /**
  * Represents a response user.
