@@ -100,4 +100,15 @@ public class User {
      */
     private LocalDate dateOfBirth;
 
+    /**
+     * Converts this User object to a ResponseUser object for API responses.
+     *
+     * @return a ResponseUser object representing the extended User object
+     *
+     * @since 1.0
+     */
+    public ResponseUser toAPIResponse() {
+        return new ResponseUser(this);
+    }
+
 }
