@@ -19,6 +19,22 @@ import java.util.UUID;
 public class UserService {
 
     /**
+     * Constructor of the UserService class
+     * <p>
+     * The constructor of this class makes sure that the database table is created before users are being stored.
+     *
+     * @since 1.0
+     */
+    public UserService() {
+        databaseService.update("CREATE TABLE IF NOT EXISTS `users` (" +
+                "`id` UUID NOT NULL DEFAULT uuid(), " +
+                "`name` TEXT NOT NULL, " +
+                "`date_of_birth` DATE NOT NULL, " +
+                "PRIMARY KEY (`id`)" +
+                ") ENGINE = InnoDB;");
+    }
+
+    /**
      * Represents a service for interacting with a database.
      * <p>
      * The DatabaseService class provides methods for establishing a connection to a database,
