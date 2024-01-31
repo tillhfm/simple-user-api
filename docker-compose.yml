@@ -8,8 +8,9 @@ services:
     ports:
       - "8080:8080"
     environment:
+      # Database must be a MySQL database (MariaDB dependency is used)
       USER_DATABASE_HOST: 'hostname:port'
       USER_DATABASE_NAME: 'db'
       USER_DATABASE_USERNAME: 'user'
-      # replace '$' with '$$'
+      # Replace '$' characters with '$$'
       USER_DATABASE_PASSWORD: 'password'

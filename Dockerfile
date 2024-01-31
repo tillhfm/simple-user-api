@@ -22,12 +22,20 @@ ENV PATH=$PATH:/usr/lib/jvm/default-jvm/bin
 # Create a directory for the Spring Boot application
 WORKDIR /app
 
-# Copy the Spring Boot application JAR file into the container
-COPY build/libs/simple-user-api-0.0.1-SNAPSHOT.jar /app/simple-user-api-0.0.1-SNAPSHOT.jar
+# Copy entire project into Docker image
+COPY . .
 
+# Give permissions to gradle script to allow building the jar
+RUN chmod +x gradlew
+
+# Build the jar
+RUN ./gradlew build
+
+# Copy the jar into the work dir
+RUN cp build/libs/*.jar app.jar
 
 # Expose the port your application runs on
 EXPOSE 8080
 
 # Specify the command to run your Spring Boot application
-CMD ["java", "-jar", "simple-user-api-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "app.jar"]
