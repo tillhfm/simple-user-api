@@ -1,8 +1,8 @@
-package de.trxsson.userapi.controller;
+package de.tillhfm.userapi.controller;
 
-import de.trxsson.userapi.entity.ResponseUser;
-import de.trxsson.userapi.entity.User;
-import de.trxsson.userapi.service.UserService;
+import de.tillhfm.userapi.entity.ResponseUser;
+import de.tillhfm.userapi.entity.User;
+import de.tillhfm.userapi.service.UserService;
 import lombok.NonNull;
 import org.springframework.web.bind.annotation.*;
 

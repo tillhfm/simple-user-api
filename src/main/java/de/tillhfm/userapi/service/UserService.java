@@ -1,6 +1,6 @@
-package de.trxsson.userapi.service;
+package de.tillhfm.userapi.service;
 
-import de.trxsson.userapi.entity.User;
+import de.tillhfm.userapi.entity.User;
 import lombok.NonNull;
 
 import java.sql.SQLException;

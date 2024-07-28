@@ -1,4 +1,4 @@
-package de.trxsson.userapi.entity;
+package de.tillhfm.userapi.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
