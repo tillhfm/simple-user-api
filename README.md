@@ -7,7 +7,7 @@ To run this simple API application on your server you only need to follow a few 
 ### How to get it running
 **1.** Clone this GitHub repository onto your machine by either running:
 ````shell
-git clone https://github.com/trxsson/simple-user-api.git
+git clone https://github.com/tillhfm/simple-user-api.git
 ````
 or downloading the repository manually to your machine. <br><br>
 **2.** Open up the ``docker-compose.yml`` file and change the values of the pre-defined environment variables to hold your database credentials. The user table is being created once the application runs. <br><br>
